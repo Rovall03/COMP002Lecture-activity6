@@ -6,26 +6,36 @@
     <title>lecture activity 6</title>
 </head>
 <body>
-    <form action="" method="post">
+    <form id="form">
        <p> <input type="text" value="abc">(text)</p>
        <p><textarea name="textarea" id="textarea"></textarea>(textarea)</p>
-       <label for="favcolor">Select your favorite color:</label>
-       <input type="color" id="favcolor" name="favcolor" value="#ff000">
-       <button>Submit</button>
+       <label for="colorInput">Select your favorite color:</label>
+       <input type="color" id="colorInput" name="favcolor" value="#ff000">
+       <button type="submit">Submit</button>
     </form>
     <script>
-        let form = document.querySelector("form");
+        let form = document.querySelector("form");/*gets info from form*/
         let textInput = document.getElementById("textarea");/* ref line 11 id textarea*/
         let colorInput = document.getElementById("colorInput");/*gets color info color input*/
 
+       let storedColor = localStorage.getItem("favColor"); /*saves color info*/
+         if (storedColor) 
+       console.log("Stored color:", storedColor);/*bring up saved info*/
+       colorInput.value = storedColor;
+  
+
+         form.addEventListener("submit", event => {/*for,m ref the whole form event listener is looking for submit button event */
+            event.preventDefault(); /*Prevents  default */
+
+       
+            /*logs makes hello world pop up in text box */
         
-        form.addEventListener("submit", event => {/*for,m ref the whole form event listener is looking for submit button event */
-        /*logs makes hello world pop up in text box */
         console.log(textInput.value="hello world");
          console.log("Selected color:", colorInput.value);
 
         /* Save  color info  in local storage*/
-        localStorage.setItem("favColor", colorInput.value);        })
+        localStorage.setItem("favColor", colorInput.value);   
+         })
    </script>
 </body>
 </html>
