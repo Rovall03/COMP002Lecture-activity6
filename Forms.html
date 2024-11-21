@@ -9,16 +9,23 @@
     <form action="" method="post">
        <p> <input type="text" value="abc">(text)</p>
        <p><textarea name="textarea" id="textarea"></textarea>(textarea)</p>
-        <button>Submit</button>
+       <label for="favcolor">Select your favorite color:</label>
+       <input type="color" id="favcolor" name="favcolor" value="#ff000">
+       <button>Submit</button>
     </form>
     <script>
-        let textInput = document.getElementById("textarea");/* ref line 11 id textarea*/
-        
         let form = document.querySelector("form");
+        let textInput = document.getElementById("textarea");/* ref line 11 id textarea*/
+        let colorInput = document.getElementById("colorInput");/*gets color info color input*/
+
+        
         form.addEventListener("submit", event => {/*for,m ref the whole form event listener is looking for submit button event */
-            event.preventDefault();/*blocks default once submit is hit hello world mes.*/
-            textInput. value="Hello WOrld";
-        })
+        /*logs makes hello world pop up in text box */
+        console.log(textInput.value="hello world");
+         console.log("Selected color:", colorInput.value);
+
+        /* Save  color info  in local storage*/
+        localStorage.setItem("favColor", colorInput.value);        })
    </script>
 </body>
 </html>
